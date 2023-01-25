@@ -1,0 +1,579 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bondora Credit Risk P2P Prediction</title>
+
+
+    <!-- BootStrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+
+    <!-- css -->
+    <link rel="stylesheet" href="static/css/styles.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+
+    <style>
+          /*this deal with header or nav bar of the page*/
+        .header {
+            overflow: hidden;
+            background-color: #f5f0f0;
+            padding: 15px 10px;
+            }
+
+        .header a {
+            float: left;
+            color: rgb(15, 2, 2);
+            text-align: center;
+            padding: 12px;
+            text-decoration: none;
+            font-size: 18px; 
+            line-height: 25px;
+            border-radius: 4px;
+            }
+
+        .header a:hover {
+            background-color: rgb(212, 204, 204);
+            color: black;
+            }
+
+        .header a.center {
+            font-size:32px;
+            background-color: rgb(3, 7, 15);
+            color: rgb(234, 221, 221);
+            }
+
+        .header-right {
+            float: right;
+            }
+            
+ 
+    </style>
+    
+</head>
+
+
+<body>
+
+    <!-- As a heading -->
+    <div class="header">
+        <a class="center"><b>Bondora Credit Risk P2P Prediction</b></a>
+    <div>
+
+    <br><br><br> 
+
+    <div class="container">
+        <form action="result" method="post">{% csrf_token %} 
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">BidsportfolioManager</h5>
+                            <!-- Bids portfolio Manager -->
+                            <input type="number" placeholder="Enter an BidsportfolioManager" name="BidsportfolioManager" id="BidsportfolioManager"  required="required">
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Bids Api</h5>
+                            <!-- Bids Api -->
+                            <input type="number" id="BidsApi" name="BidsApi" placeholder="BidsApi" required="required">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">BidsManual</h5>
+                            <!-- BidsManual -->
+                            <input type="number" placeholder="Enter an BidsManual" name="BidsManual" id="BidsManual"  required="required">
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">NewCreditCustomer</h5>
+                            <!-- NewCreditCustomer -->
+                            <input list="NewCreditCustomers" placeholder="Enter NewCreditCustomer" name="NewCreditCustomer" id="NewCreditCustomer" required="required">
+                            <datalist id="NewCreditCustomers">
+                                <option value="Non-Existed Customer">
+                                    <option value="Existed Customer">
+                            </datalist> 
+        
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Age</h5>
+                            <!-- Age -->
+                            <input type="number" placeholder="Enter Age" name="Age" id="Age"  required="required">
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title"> AppliedAmount</h5>
+                            <!-- AppliedAmount -->
+                            <input type="number" id="AppliedAmount" name="AppliedAmount" placeholder="AppliedAmount" required="required">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Interest</h5>
+                            <!-- Interest -->
+                            <input type="number" placeholder="Enter Interest" name="Interest" id="Interest"  required="required">
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">MonthlyPayment</h5>
+                                <!-- MonthlyPayment -->
+                                <input type="number" placeholder="Enter MonthlyPayment" name="MonthlyPayment" id="MonthlyPayment"  required="required">
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                                <h5 class="card-title">IncomeTotal</h5>
+                                <!-- IncomeTotal -->
+                                <input type="number" placeholder="Enter IncomeTotal" name="IncomeTotal" id="IncomeTotal"  required="required">
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="col-sm-6">
+                        <div class="card">
+                             <div class="card-body">
+                                <h5 class="card-title">ExistingLiabilities</h5>
+                                <!-- ExistingLiabilities -->
+                                <input type="number" placeholder="Enter ExistingLiabilities" name="ExistingLiabilities" id="ExistingLiabilities"  required="required">
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">RefinanceLiabilities</h5>
+                            <!-- RefinanceLiabilities -->
+                            <input type="number" placeholder="Enter RefinanceLiabilities" name="RefinanceLiabilities" id="RefinanceLiabilities"  required="required">
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">DebtToIncome</h5>
+                            <!-- DebtToIncome -->
+                            <input type="number"  placeholder="Enter DebtToIncome" name="DebtToIncome" id="DebtToIncome" required="required">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                                <h5 class="card-title">FreeCash</h5>
+                                <!-- FreeCash -->
+                                <input type="number" placeholder="Enter FreeCash" name="FreeCash" id="FreeCash"  required="required">
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Gender</h5>
+                            <!-- Gender -->
+                            <input list="Genders" placeholder="Enter Gender" name="Gender" id="Gender" required="required">
+                            <datalist id="Genders">
+                                <option value="Male">
+                                    <option value="Women">
+                                    <option value="Undefined">
+                            </datalist> 
+        
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                                <h5 class="card-title">InterestAndPenaltyPaymentsMade</h5>
+                                <!-- InterestAndPenaltyPaymentsMade -->
+                                <input type="number" placeholder="Enter InterestAndPenaltyPaymentsMade" name="InterestAndPenaltyPaymentsMade" id="InterestAndPenaltyPaymentsMade"  required="required">
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                                <h5 class="card-title">PreviousEarlyRepaymentsCountBeforeLoan</h5>
+                                <!-- PreviousEarlyRepaymentsCountBeforeLoan -->
+                                <input type="number" placeholder="Enter PreviousEarlyRepaymentsCountBeforeLoan" name="PreviousEarlyRepaymentsCountBeforeLoan" id="PreviousEarlyRepaymentsCountBeforeLoan"  required="required">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                                <h5 class="card-title">VerificationType</h5>
+                                <!-- Verification Type -->
+                                <input list="VerificationTypes" placeholder="Enter VerificationType" name="VerificationType" id="VerificationType" required="required">
+                                <datalist id="VerificationTypes">
+                                <option value="Income and expenses verified">
+                                    <option value="Income unverified">
+                                    <option value="Income verified">
+                                    <option value="Income unverified, cross-referenced by phone">
+                                    <option value="Not set">
+                            </datalist> 
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                                <h5 class="card-title">LanguageCode</h5>
+                                <!-- Language Code -->
+                                <input list="LanguageCodes" placeholder="Enter LanguageCode" name="LanguageCode" id="LanguageCode" required="required">
+                                <datalist id="LanguageCodes">
+                                    <option value="Estonian">
+                                        <option value=" Finnish">
+                                        <option value="Spanish">
+                                        <option value="Russian">
+                                        <option value="English">
+                                        <option value="Slovakian">
+                                        <option value="others">
+                                        <option value="German">
+                            </datalist> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                                <h5 class="card-title">Country</h5>
+                                <!-- Country -->
+                                <input list="Countries" placeholder="Enter Country" name="Country" id="Country" required="required">
+                                <datalist id="Countries">
+                                    <option value="EE">
+                                        <option value="FI">
+                                        <option value="ES">
+                                        <option value="SK">
+                            </datalist> 
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                                <h5 class="card-title">UseOfLoan</h5>
+                                <!-- Use Of Loan -->
+                                <input list="UseOfLoans" placeholder="Enter UseOfLoan" name="UseOfLoan" id="UseOfLoan" required="required">
+                                <datalist id="UseOfLoans">
+                                    <option value="Not set category">
+                                        <option value="Other">
+                                        <option value="Home improvement">
+                                        <option value="Loan consolidation">
+                                        <option value="Vehicle">
+                                        <option value="Business">
+                                        <option value="Travel ">
+                                        <option value="Health">
+                                        <option value="Education">
+                                        <option value="Real estate">
+                                        <option value="Purchase of machinery equipment">
+                                        <option value="Other business">
+                                        <option value="Accounts receivable financing">
+                                        <option value="Working capital financing">
+                                        <option value="Acquisition of stocks">
+                                        <option value="Acquisition of real estate">
+                                        <option value="Construction finance">
+                            </datalist> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                                <h5 class="card-title">Education</h5>
+                                <!-- Education -->
+                                <input list="Educations" placeholder="Enter Education" name="Education" id="Education" required="required">
+                                <datalist id="Educations">
+                                    <option value="Secondary education">
+                                        <option value="Higher education">
+                                        <option value="Vocational education">
+                                        <option value="Basic educattion">
+                                        <option value="Primary education">
+                                        <option value="others">
+                            </datalist> 
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                                <h5 class="card-title">MaritalStatus</h5>
+                                <!-- Marital Status -->
+                                <input list="MaritalStatuses" placeholder="Enter MaritalStatus" name="MaritalStatus" id="MaritalStatus" required="required">
+                                <datalist id="MaritalStatuses">
+                                    <option value="Not present">
+                                        <option value="Single">
+                                        <option value="Married">
+                                        <option value="Cohabitant">
+                                        <option value="Divoreced">
+                                        <option value="Widow">
+                            </datalist> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                                <h5 class="card-title">EmploymentDurationCurrentEmployer</h5>
+                                <!-- Employment Duration Current Employere -->
+                                <input list="EmploymentDurationCurrentEmployers" placeholder="Enter EmploymentDurationCurrentEmployer" name="EmploymentDurationCurrentEmployer" id="EmploymentDurationCurrentEmployer" required="required">
+                                <datalist id="EmploymentDurationCurrentEmployers">
+                                    <option value="MoreThan5Years">
+                                        <option value="UpTo1Year">
+                                        <option value="UpTo5Years">
+                                        <option value="UpTo2Years">
+                                        <option value="UpTo3Years">
+                                        <option value="Retiree">
+                                        <option value="UpTo4Years">
+                                        <option value="Other">
+                                        <option value="TrialPeriod">
+                            </datalist> 
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                                <h5 class="card-title">EmploymentStatus</h5>
+                                <!-- Employment Status -->
+                                <input list="EmploymentStatuses" placeholder="Enter EmploymentStatus" name="EmploymentStatus" id="EmploymentStatus" required="required">
+                                <datalist id="EmploymentStatuses">
+                                    <option value="Fully employed">
+                                        <option value="Entrepreneur">
+                                        <option value="Retiree">
+                                        <option value="Self employed">
+                                        <option value="Partially employed">
+                                        <option value="0thers">    
+                            </datalist> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                                <h5 class="card-title">OccupationArea</h5>
+                                <!-- Occurpation Area -->
+                                <input list="OccupationAreas" placeholder="Enter OccupationArea" name="OccupationArea" id="OccupationArea" required="required">
+                                <datalist id="OccupationAreas">
+                                    <option value="Not_specified">
+                                        <option value="Other">
+                                        <option value="Retail and wholesale ">
+                                        <option value="Construction">
+                                        <option value="Processing ">
+                                        <option value="Transport and warehousing">
+                                        <option value="Healthcare and social help">
+                                        <option value="Hospitality and catering">
+                                        <option value="Info and telecom ">
+                                        <option value="Civil service & military">
+                                        <option value="Education">
+                                        <option value="Finance and insurance">
+                                        <option value="Agriculture, forestry and fishing">
+                                        <option value="Administrative">
+                                        <option value="Energy">
+                                        <option value="Art and entertainment">
+                                        <option value="Research">
+                                        <option value="Real-estate">
+                                        <option value="Utilities">
+                                        <option value="Mining">
+                            </datalist> 
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                                <h5 class="card-title">HomeOwnershipType</h5>
+                                <!-- Home Ownership Type -->
+                                <input list="HomeOwnershipTypes" placeholder="Enter HomeOwnershipType" name="HomeOwnershipType" id="HomeOwnershipType" required="required">
+                                <datalist id="HomeOwnershipTypes">
+                                    <option value="Owner">
+                                        <option value="Tenants, pre furnished property">
+                                        <option value="Living with parents">
+                                        <option value="Mortgage">
+                                        <option value="Tenanats unfurnished property">
+                                        <option value="Other">
+                                        <option value="Joint ownership">
+                                        <option value="Joint tenant">
+                                        <option value="Council house">
+                                        <option value="Owner with encumbance">
+                                        <option value="Homeless">
+                                        <option value="Not specified">
+                            </datalist> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                                <h5 class="card-title">Rating</h5>
+                                <!-- Rating -->
+                                <input list="Ratings" placeholder="Enter Rating" name="Rating" id="Rating" required="required">
+                                <datalist id="Ratings">
+                                    <option value="F">
+                                        <option value="HR">
+                                        <option value="E">
+                                        <option value="D">
+                                        <option value="C">
+                                        <option value="B">
+                                        <option value="A">
+                                        <option value="AA">
+                            </datalist> 
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                                <h5 class="card-title">CreditScoreEsMicroL</h5>
+                                <!-- Credit Score Es MicroL -->
+                                <input list="CreditScoreEsMicroLs" placeholder="Enter CreditScoreEsMicroL" name="CreditScoreEsMicroL" id="CreditScoreEsMicroL" required="required">
+                                <datalist id="CreditScoreEsMicroLs">
+                                    <option value="M">
+                                        <option value="M1">
+                                        <option value="M5">
+                                        <option value="M2">
+                                        <option value="M3">
+                                        <option value="M4">
+                                        <option value="M6">
+                                        <option value="M8">
+                                        <option value="M9">
+                                        <option value="M7">
+                                        <option value="M10">
+                            </datalist> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Restructured</h5>
+                            <!-- Gender -->
+                            <input type="Restructures" placeholder="Enter Restructured" name="Restructured" id="Restructured" required="required">
+        
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">PrincipalPaymentsMade</h5>
+                            <!-- PrincipalPaymentsMade -->
+                            <input type="number" placeholder="Enter PrincipalPaymentsMade" name="PrincipalPaymentsMade" id="PrincipalPaymentsMade" required="required">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <br>
+            <!-- Submit -->
+            <input type="submit" value="Submit" text-align='center' class="btn btn-secondary">
+        </form>
+        <br>
+        <h3> {{ prediction_text }}</h3>
+
+        <br>
+
+    </div>
+</div class="footer">
+<p>©2022 Developed by </p>
+<br>
+<a href="https://www.linkedin.com/in/bharath-etyala-32801b13b/" style="color: black;"> Bharath Etyala </a>
+</div>
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>       
+            
+
+</body>
+</html>

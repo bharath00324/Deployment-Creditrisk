@@ -1,0 +1,1 @@
+web gunicorn CreditRiskPredictions.wsgi:application --log-file -
